@@ -2,233 +2,7 @@ import { IForm, IFormSection } from './types';
 
 const formSections: IFormSection[] = [
   { title: 'Overview', slug: 'overview' },
-  { title: 'Individual', slug: 'individual' },
-  {
-    title: 'Photographs',
-    slug: 'photographs',
-    uploadGroupSections: [
-      [
-        'Face from the front',
-        'Face profile with ear shown left side',
-        'Face profile with ear shown right side',
-      ],
-      [
-        'Whole body in underwear front',
-        'Whole body in underwear back',
-        'Whole body in underwear in profile',
-      ],
-      ['Other anomalies'],
-      ['Hands', 'Dorsal'],
-      ['Feet', 'Plantar'],
-      ['Videos'],
-    ],
-  },
-  {
-    title: 'Pedigree',
-    slug: 'pedigree',
-    description: `Ask about the patient's symptoms/malformation/neurological/neuromuscular disease/cancer/other disease in the family for at least three, preferably four generations. Mark diagnosis in pedigree. Please upload the pedigree as a PED file or an image. `,
-    uploadSections: ['Pedigree'],
-    questions: [
-      {
-        title: 'Other information about family history',
-        name: 'familyhistory',
-        type: 'longText',
-      },
-    ],
-  },
-  {
-    title: 'Family history',
-    slug: 'family-history',
-    description: 'Please fill in even if you have drawn a pedigree.',
-    questions: [
-      {
-        title:
-          'The suspected mode of inheritance is (multiple options possible, use ctrl and shift)',
-        name: 'inheritanceMode',
-        type: 'selectMultiple',
-        options: [
-          'Autosomal Dominant',
-          'Autosomal recessive',
-          'X-linked recessive',
-          'X-linked dominant',
-          'Mitochondrial',
-          'Mosaic',
-          'Unknown/other',
-        ],
-      },
-      {
-        title: "The patient's parents are consanguineous?",
-        name: 'parentsConsanguineous',
-        options: ['Yes', 'No', 'Unknown'],
-        type: 'select',
-      },
-      {
-        title:
-          'Another relative affected with the same diagnosis as the patient? If Yes, indicate relationship.',
-        name: 'relativeAffected',
-        options: ['Yes', 'No', 'Unknown'],
-        type: 'select',
-      },
-      {
-        title: ' ',
-        name: 'affectedRelatives',
-        type: 'selectMultiple',
-        options: [
-          'None',
-          'Mother',
-          'Father',
-          'Sister',
-          'Brother',
-          'Son',
-          'Daughter',
-          'Grandfather (maternal)',
-          'Grandfather (paternal)',
-          'Grandmother (maternal)',
-          'Grandmother (paternal)',
-          'Aunt (maternal)',
-          'Uncle (maternal)',
-          'Aunt (paternal)',
-          'Uncle (paternal)',
-          'Female cousin (maternal)',
-          'Male cousin (paternal)',
-        ],
-      },
-    ],
-  },
-  {
-    title: 'Growth Chart',
-    slug: 'growth-chart',
-    uploadSections: ['Current and previous growth charts'],
-    questions: [
-      {
-        title: 'Born at gestational age (weeks, days)',
-        name: 'gestionalAge',
-        type: 'text',
-      },
-      { title: 'Birth length (cm)', name: 'birthLength', type: 'number' },
-      { title: 'Birth weight (g)', name: 'birthWeight', type: 'number' },
-      {
-        title: 'Birth head circumference (cm)',
-        name: 'headCircumference',
-        type: 'number',
-      },
-      {
-        title: 'Date at the last visit',
-        name: 'lastVisitDate',
-        type: 'date',
-      },
-      {
-        title: 'Length at the last visit (cm) (SD)',
-        name: 'lastVisitLength',
-        type: 'number',
-      },
-      {
-        title: 'Weight at the last visit (kg) (SD)',
-        name: 'lastVisitWeight',
-        type: 'number',
-      },
-      {
-        title: 'Head circumference at the last visit (cm) (SD)',
-        name: 'lastVisitHeadCircumference',
-        type: 'number',
-      },
-    ],
-  },
-  {
-    title: 'Radiology - imaging',
-    slug: 'radiology',
-    description: `Attach relevant reports and preferably original imaging on disks or upload  images in jpg or TIFF format.
-* In case of neurologic disorders, preferably MRI or CT/ultrasound of internal organs as appropriate
-* In case of skeletal concerns (e.g., skeletal dysplasia), full skeletal survey  that includes bilateral anteroposterior (AP) and posteroanterior (PA)  projections of hands, forearms, humerus, feet, leg, femur, pelvis, spine and skull.`,
-    uploadSections: [
-      'Radiology brain',
-      'Radiology skeleton',
-      'Radiology other',
-    ],
-  },
-  {
-    title: 'Previous genetic investigations',
-    slug: 'previous-genetic-investigations',
-    description: ``,
-    uploadSections: [
-      'Karyotype',
-      'Array',
-      'FISH',
-      'Targeted sequencing',
-      'WES panels/trios',
-      'WGS panels/trios',
-    ],
-    questions: [
-      {
-        name: 'arrayResults',
-        title: 'Array results',
-        type: 'text',
-      },
-      {
-        name: 'arrayFishResults',
-        title: 'FISH results',
-        type: 'text',
-      },
-      {
-        name: 'targetedVariants',
-        title: 'Targeted sequencing variants',
-        type: 'text',
-      },
-      {
-        name: 'wesPanelResults',
-        title: 'WES panels/trios variants',
-        type: 'text',
-      },
-      {
-        name: 'wgsPanelResults',
-        title: 'WGS panels/trios variants',
-        type: 'text',
-      },
-      {
-        name: 'rnaSeqResults',
-        title: 'RNA-seq results',
-        type: 'text',
-      },
-      {
-        name: 'methylationResults',
-        title: 'Methylation results',
-        type: 'text',
-      },
-    ],
-  },
-  {
-    title: 'Other Laboratory results',
-    slug: 'other-laboratory-results',
-    description: `Key laboratory test results:`,
-    uploadSections: [
-      'Basic (e.g., blood status, liver status, kidney status, basal endocrinological investigation)',
-      'Advanced testing as appropriate for phenotype (e.g., plasma amino acids, urine organic acids, carbohydrate deficient transferring)',
-      'Results of biopsies',
-    ],
-  },
-  {
-    title: 'Parents summary',
-    slug: 'parents-summary',
-    uploadSections: ['Summary'],
-  },
-  {
-    title: 'Clinical findings',
-    slug: 'clinical-findings',
-    description: `Summary of clinical findings (Provided by referral physician)
 
-In particular, please summarize the following:
-
-1. Objective findings (current clinical condition, imaging, investigations, 
-surgery, etc)
-2. When these were identified and how they evolved over time
-3. Growth and developmental milestones, and their pattern (Stable? 
-Worsening?)
-4. Overall clinical evolution (stable, worsening, improving) and severity
-5. What diagnostic hypothesis you have or had 
-6. What specialists the patient has seen
-    `,
-    questions: [{ title: '', name: 'clinicalFindings', type: 'longText' }],
-  },
   {
     title: 'Pregnancy',
     ontologies: [
@@ -936,6 +710,233 @@ Worsening?)
       },
     ],
     slug: 'cancermalignancy-benign-tumor',
+  },
+  { title: 'Individual', slug: 'individual' },
+  {
+    title: 'Photographs',
+    slug: 'photographs',
+    uploadGroupSections: [
+      [
+        'Face from the front',
+        'Face profile with ear shown left side',
+        'Face profile with ear shown right side',
+      ],
+      [
+        'Whole body in underwear front',
+        'Whole body in underwear back',
+        'Whole body in underwear in profile',
+      ],
+      ['Other anomalies'],
+      ['Hands', 'Dorsal'],
+      ['Feet', 'Plantar'],
+      ['Videos'],
+    ],
+  },
+  {
+    title: 'Pedigree',
+    slug: 'pedigree',
+    description: `Ask about the patient's symptoms/malformation/neurological/neuromuscular disease/cancer/other disease in the family for at least three, preferably four generations. Mark diagnosis in pedigree. Please upload the pedigree as a PED file or an image. `,
+    uploadSections: ['Pedigree'],
+    questions: [
+      {
+        title: 'Other information about family history',
+        name: 'familyhistory',
+        type: 'longText',
+      },
+    ],
+  },
+  {
+    title: 'Family history',
+    slug: 'family-history',
+    description: 'Please fill in even if you have drawn a pedigree.',
+    questions: [
+      {
+        title:
+          'The suspected mode of inheritance is (multiple options possible, use ctrl and shift)',
+        name: 'inheritanceMode',
+        type: 'selectMultiple',
+        options: [
+          'Autosomal Dominant',
+          'Autosomal recessive',
+          'X-linked recessive',
+          'X-linked dominant',
+          'Mitochondrial',
+          'Mosaic',
+          'Unknown/other',
+        ],
+      },
+      {
+        title: "The patient's parents are consanguineous?",
+        name: 'parentsConsanguineous',
+        options: ['Yes', 'No', 'Unknown'],
+        type: 'select',
+      },
+      {
+        title:
+          'Another relative affected with the same diagnosis as the patient? If Yes, indicate relationship.',
+        name: 'relativeAffected',
+        options: ['Yes', 'No', 'Unknown'],
+        type: 'select',
+      },
+      {
+        title: ' ',
+        name: 'affectedRelatives',
+        type: 'selectMultiple',
+        options: [
+          'None',
+          'Mother',
+          'Father',
+          'Sister',
+          'Brother',
+          'Son',
+          'Daughter',
+          'Grandfather (maternal)',
+          'Grandfather (paternal)',
+          'Grandmother (maternal)',
+          'Grandmother (paternal)',
+          'Aunt (maternal)',
+          'Uncle (maternal)',
+          'Aunt (paternal)',
+          'Uncle (paternal)',
+          'Female cousin (maternal)',
+          'Male cousin (paternal)',
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Growth Chart',
+    slug: 'growth-chart',
+    uploadSections: ['Current and previous growth charts'],
+    questions: [
+      {
+        title: 'Born at gestational age (weeks, days)',
+        name: 'gestionalAge',
+        type: 'text',
+      },
+      { title: 'Birth length (cm)', name: 'birthLength', type: 'number' },
+      { title: 'Birth weight (g)', name: 'birthWeight', type: 'number' },
+      {
+        title: 'Birth head circumference (cm)',
+        name: 'headCircumference',
+        type: 'number',
+      },
+      {
+        title: 'Date at the last visit',
+        name: 'lastVisitDate',
+        type: 'date',
+      },
+      {
+        title: 'Length at the last visit (cm) (SD)',
+        name: 'lastVisitLength',
+        type: 'number',
+      },
+      {
+        title: 'Weight at the last visit (kg) (SD)',
+        name: 'lastVisitWeight',
+        type: 'number',
+      },
+      {
+        title: 'Head circumference at the last visit (cm) (SD)',
+        name: 'lastVisitHeadCircumference',
+        type: 'number',
+      },
+    ],
+  },
+  {
+    title: 'Radiology - imaging',
+    slug: 'radiology',
+    description: `Attach relevant reports and preferably original imaging on disks or upload  images in jpg or TIFF format.
+* In case of neurologic disorders, preferably MRI or CT/ultrasound of internal organs as appropriate
+* In case of skeletal concerns (e.g., skeletal dysplasia), full skeletal survey  that includes bilateral anteroposterior (AP) and posteroanterior (PA)  projections of hands, forearms, humerus, feet, leg, femur, pelvis, spine and skull.`,
+    uploadSections: [
+      'Radiology brain',
+      'Radiology skeleton',
+      'Radiology other',
+    ],
+  },
+  {
+    title: 'Previous genetic investigations',
+    slug: 'previous-genetic-investigations',
+    description: ``,
+    uploadSections: [
+      'Karyotype',
+      'Array',
+      'FISH',
+      'Targeted sequencing',
+      'WES panels/trios',
+      'WGS panels/trios',
+    ],
+    questions: [
+      {
+        name: 'arrayResults',
+        title: 'Array results',
+        type: 'text',
+      },
+      {
+        name: 'arrayFishResults',
+        title: 'FISH results',
+        type: 'text',
+      },
+      {
+        name: 'targetedVariants',
+        title: 'Targeted sequencing variants',
+        type: 'text',
+      },
+      {
+        name: 'wesPanelResults',
+        title: 'WES panels/trios variants',
+        type: 'text',
+      },
+      {
+        name: 'wgsPanelResults',
+        title: 'WGS panels/trios variants',
+        type: 'text',
+      },
+      {
+        name: 'rnaSeqResults',
+        title: 'RNA-seq results',
+        type: 'text',
+      },
+      {
+        name: 'methylationResults',
+        title: 'Methylation results',
+        type: 'text',
+      },
+    ],
+  },
+  {
+    title: 'Other Laboratory results',
+    slug: 'other-laboratory-results',
+    description: `Key laboratory test results:`,
+    uploadSections: [
+      'Basic (e.g., blood status, liver status, kidney status, basal endocrinological investigation)',
+      'Advanced testing as appropriate for phenotype (e.g., plasma amino acids, urine organic acids, carbohydrate deficient transferring)',
+      'Results of biopsies',
+    ],
+  },
+  {
+    title: 'Parents summary',
+    slug: 'parents-summary',
+    uploadSections: ['Summary'],
+  },
+  {
+    title: 'Clinical findings',
+    slug: 'clinical-findings',
+    description: `Summary of clinical findings (Provided by referral physician)
+
+In particular, please summarize the following:
+
+1. Objective findings (current clinical condition, imaging, investigations, 
+surgery, etc)
+2. When these were identified and how they evolved over time
+3. Growth and developmental milestones, and their pattern (Stable? 
+Worsening?)
+4. Overall clinical evolution (stable, worsening, improving) and severity
+5. What diagnostic hypothesis you have or had 
+6. What specialists the patient has seen
+    `,
+    questions: [{ title: '', name: 'clinicalFindings', type: 'longText' }],
   },
   { title: 'Summary', slug: 'summary' },
 ];
